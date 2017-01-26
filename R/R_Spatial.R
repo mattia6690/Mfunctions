@@ -14,7 +14,6 @@
 #' @param sd boolean; computes the standard deviation of each extracted raster
 #' @param narm boolean; removes na values
 #' @param seed integer; applies the set.seed() function enabling the control over
-#' @usage extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,seed=1)
 
 extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,seed=1){
 

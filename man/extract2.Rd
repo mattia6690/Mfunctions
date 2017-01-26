@@ -4,7 +4,8 @@
 \alias{extract2}
 \title{Extract 2}
 \usage{
-extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,seed=1)
+extract2(rr, pp, points = 1000, samp.type = "regular", weight = F,
+  sd = F, narm = F, seed = 1)
 }
 \arguments{
 \item{rr}{Raster object; raster image}
@@ -13,7 +14,7 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,
 
 \item{points}{integer; Number of SpatialPoints created in the Polygon}
 
-\item{weight}{boolean; Weighting image considering the underlying rasters a
+\item{weight}{boolean; Weighting image considering the underlaying rasters a
 differentweight in the extraction computation. This makes pixel partially
 located within a polygon less weighted. Input is T/F}
 
@@ -28,6 +29,6 @@ generated as described in the spsample() function of the "sp" package}
 }
 \description{
 With this functions raster values are extracted by various
-overlying spatial points created within a polygon shapefile.
+overlaying spatial points created within a polygon shapefile.
 }
 

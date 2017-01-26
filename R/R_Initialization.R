@@ -5,7 +5,7 @@
 #' @description Loads and installs a CRAN hosted Package automatically in R.
 #' No further need to apply both install.package() and library()
 #' @param mypkg character; CRAN Package
-#' @author Christian Zeidler, Universität Würzburg
+#' @author Christian Zeidler, University Wuerzburg
 
 loadandinstall <- function(mypkg) {if (!is.element(mypkg, installed.packages()[,1]))
   {install.packages(mypkg)}; library(mypkg, character.only=TRUE)  }
