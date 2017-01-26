@@ -7,10 +7,13 @@
 loadandinstall(mypkg)
 }
 \arguments{
-\item{mypkg}{CRAN Package}
+\item{mypkg}{character; CRAN Package}
 }
 \description{
 Loads and installs a CRAN hosted Package automatically in R.
 No further need to apply both install.package() and library()
+}
+\author{
+Christian Zeidler, Universität Würzburg
 }
 
