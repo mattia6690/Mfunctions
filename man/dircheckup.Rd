@@ -6,4 +6,13 @@
 \usage{
 dircheckup(mydir)
 }
+\arguments{
+\item{mypkg}{Location of a Directory}
+}
+\description{
+Automatically checks whether a Directory exists. If none is
+available it will automatically create one.
+By specifying the Subdirectory also non-existing main directories will
+be automatically built
+}
 
