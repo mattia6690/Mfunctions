@@ -6,4 +6,4 @@ install.packages("devtools")
 library("roxygen2")
 library("devtools")
 
-install_bitbucket("mattia6690/mrfunctions.git")
+install_bitbucket("mattia6690/mrfunctions.git",user="mattia6690",dependencies=T)

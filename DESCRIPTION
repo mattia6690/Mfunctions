@@ -7,3 +7,4 @@ Maintainer: Mattia Rossi <Mattia.Rossi@eurac.edu>
 Description: Various R Functions written by Mattia Rossi at EURAC UNIBZ UNIWUE.
 License: GPL-2
 RoxygenNote: 5.0.1
+Depends: raster
