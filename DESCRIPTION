@@ -1,9 +1,8 @@
 Package: MRFunctions
 Type: Package
-Title: A mix of R Functions written by Mattia Rossi
-Version: 0.1.0
+Title: Various R Functions written by Mattia Rossi
+Version: 0.0.1
 Author: Mattia Rossi
 Maintainer: Mattia Rossi <Mattia.Rossi@eurac.edu>
-Description: A mix of R Functions written by Mattia Rossi
-  at EURAC UNIBZ UNIWUE.
+Description: Various R Functions written by Mattia Rossi at EURAC UNIBZ UNIWUE.
 RoxygenNote: 5.0.1
