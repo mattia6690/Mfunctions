@@ -14,6 +14,9 @@ extract2(rr, pp, points = 1000, samp.type = "regular", weight = F,
 
 \item{points}{integer; Number of SpatialPoints created in the Polygon}
 
+\item{samp.type}{character; Sampling technique for the Spatial Points
+generated as described in the spsample() function of the "sp" package}
+
 \item{weight}{boolean; Weighting image considering the underlaying rasters a
 differentweight in the extraction computation. This makes pixel partially
 located within a polygon less weighted. Input is T/F}
@@ -23,9 +26,6 @@ located within a polygon less weighted. Input is T/F}
 \item{narm}{boolean; removes na values}
 
 \item{seed}{integer; applies the set.seed() function enabling the control over}
-
-\item{sample.type}{character; Sampling technique for the Spatial Points
-generated as described in the spsample() function of the "sp" package}
 }
 \description{
 With this functions raster values are extracted by various

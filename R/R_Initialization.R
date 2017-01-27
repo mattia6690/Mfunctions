@@ -15,7 +15,7 @@ loadandinstall <- function(mypkg) {if (!is.element(mypkg, installed.packages()[,
 #' available it will automatically create one.
 #' By specifying the Subdirectory also non-existing main directories will
 #' be automatically built
-#' @param mypkg character; Location of a Directory
+#' @param mydir character; Location of a Directory
 
 dircheckup     <- function(mydir) {
   loadandinstall("stringr")

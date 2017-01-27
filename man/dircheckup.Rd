@@ -7,7 +7,7 @@
 dircheckup(mydir)
 }
 \arguments{
-\item{mypkg}{character; Location of a Directory}
+\item{mydir}{character; Location of a Directory}
 }
 \description{
 Automatically checks whether a Directory exists. If none is

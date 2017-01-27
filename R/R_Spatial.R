@@ -6,7 +6,7 @@
 #' @param rr Raster object; raster image
 #' @param pp Spatial object; polygon file
 #' @param points integer; Number of SpatialPoints created in the Polygon
-#' @param sample.type character; Sampling technique for the Spatial Points
+#' @param samp.type character; Sampling technique for the Spatial Points
 #' generated as described in the spsample() function of the "sp" package
 #' @param weight boolean; Weighting image considering the underlaying rasters a
 #' differentweight in the extraction computation. This makes pixel partially
