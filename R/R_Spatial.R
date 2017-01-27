@@ -17,6 +17,7 @@
 
 extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,seed=1){
 
+  install.packages("raster",dependencies = T)
   #Transform the Raster to Array (much faster and cellnumbers)
   t5<-as.array(values(rr))
   #Initialize Array for the Values and the Cells used
