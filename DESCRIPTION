@@ -5,4 +5,5 @@ Version: 0.0.1
 Author: Mattia Rossi
 Maintainer: Mattia Rossi <Mattia.Rossi@eurac.edu>
 Description: Various R Functions written by Mattia Rossi at EURAC UNIBZ UNIWUE.
+License: Free
 RoxygenNote: 5.0.1
