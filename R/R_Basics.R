@@ -3,6 +3,8 @@
 #' @description Creates the Binary output of a number
 #' @param i numeric; numeric to be transformed in a binaric array
 #' @param bit numeric; number of digits for the binaric ountput
+#' @export
+
 binary <- function(i,bit){
 
   bite<-bit-1
@@ -16,4 +18,6 @@ binary <- function(i,bit){
 #' @title Digit Sum
 #' @description Computes the sum of digits in one number
 #' @param x numeric; any numeric
+#' @export
+
 digitsum <- function(x) sum(floor(x / 10^(0:(8 - 1))) %% 10)
