@@ -1,4 +1,10 @@
 # R Initialization Functions MR
+req.pkg<- c("raster","stringr")
+for(i in req.pkg){
+  if (!is.element(i, installed.packages()[,1])){
+    install.packages(i,repos = "http://cran.rstudio.com/")}; library(i, character.only=TRUE)
+}
+
 
 #' @title Loadandinstall
 #' @description Loads and installs a CRAN hosted Package automatically in R.
@@ -17,9 +23,9 @@ loadandinstall <- function(mypkg) {if (!is.element(mypkg, installed.packages()[,
 
 dircheckup     <- function(mydir) {
 
-  install.packages("stringr")
   sp<-str_split(mydir,"/")[[1]]
   for(i in 2:length(sp)){
     mydir2<-paste(sp[1:i],collapse="/")
     if(dir.exists(mydir2)==F){dir.create(mydir2)}
   }
+}

@@ -6,4 +6,5 @@ Author: Mattia Rossi
 Maintainer: Mattia Rossi <Mattia.Rossi@eurac.edu>
 Description: Various R Functions written by Mattia Rossi at EURAC UNIBZ UNIWUE.
 License: GPL-2
+LazyData: true
 RoxygenNote: 5.0.1
