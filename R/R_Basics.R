@@ -21,3 +21,28 @@ binary <- function(i,bit){
 #' @export
 
 digitsum <- function(x) sum(floor(x / 10^(0:(8 - 1))) %% 10)
+
+
+#' @title Multigrepl
+#' @description Allows to add multiple patterns to a grepl operation.
+#' These multiple patterns are then tested against other strings.
+#' This function is based on the base grepl operator
+#' @param mypatterns string(s); list of multiple input strings
+#' @param x string(s); list of multiple target patterns
+#' @export
+
+multigrepl      <- function(mypatterns,x){
+
+  # Initialize the For iteration for processing the relevant patterns
+  # The x has to stay the same
+  for(i in 1:length(mypatterns)){
+
+    g1<-grepl(mypatterns[i],x)
+    if(i==1){g2<-g1}
+    g2[which(g1==T)]=TRUE
+
+  }
+
+  return(g2)
+
+}

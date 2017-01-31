@@ -13,6 +13,6 @@ dircheckup(mydir)
 Automatically checks whether a Directory exists. If none is
 available it will automatically create one.
 By specifying the Subdirectory also non-existing main directories will
-be automatically built
+be recursively built
 }
 
