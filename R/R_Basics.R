@@ -45,7 +45,19 @@ multigrepl      <- function(mypatterns,x){
     g2[which(g1==T)]=TRUE
 
   }
-
   return(g2)
-
 }
+
+#' @title StartFun
+#' @description Checks the first NA value within a matrix or array and returns
+#' the location. Useful function for iteratively filling an object without
+#' the use of another iteration.This function autmatically states the first NA value
+#' @param myinp empty array or matrix; Thisobject must be empty or just created
+#' filled with NA.
+#' @export
+
+startfun        <- function(myinp) {
+  if(class(myinp)=="matrix"){start<-min(which(is.na(myinp[,1])));return(start)}
+  if(class(myinp)=="array"){start<-min(which(is.na(myinp)));return(start)}
+}
+
