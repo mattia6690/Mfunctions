@@ -7,12 +7,15 @@
 
 binary <- function(i,bit){
 
+  if((2^bit)<i){stop("The number is too large to be represented by the amount of digits")}
   bite<-bit-1
   a<-2^(0:bite)
   b<-2*a
 
   # Revert by Sum from 7 to 0 (7:0) -> Starting with Day 1 to 8 (MODIS codes from Day 8 to Day 1)
-  sapply(i,function(x) sum(10^(bite:0)[(x %% b)>=a]))
+  u<-sapply(i,function(x) sum(10^(0:bite)[(x %% b)>=a]))
+  res<-sprintf(paste0("%0",bit,"d"),u)
+  return(res)
 }
 
 #' @title Digit Sum
