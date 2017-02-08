@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Basics.R
 \name{binary}
 \alias{binary}
-\title{Binary}
+\title{Create Binaries}
 \usage{
 binary(i, bit)
 }

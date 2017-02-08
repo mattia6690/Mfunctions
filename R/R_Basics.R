@@ -1,5 +1,5 @@
 
-#' @title Binary
+#' @title Create Binaries
 #' @description Creates the Binary output of a number
 #' @param i numeric; numeric to be transformed in a binaric array
 #' @param bit numeric; number of digits for the binaric ountput
@@ -18,7 +18,7 @@ binary <- function(i,bit){
   return(res)
 }
 
-#' @title Digit Sum
+#' @title Calculate Sum of Digits
 #' @description Computes the sum of digits in one number
 #' @param x numeric; any numeric
 #' @export
@@ -26,7 +26,7 @@ binary <- function(i,bit){
 digitsum <- function(x) sum(floor(x / 10^(0:(8 - 1))) %% 10)
 
 
-#' @title Multigrepl
+#' @title Multiple grepl operations
 #' @description Allows to add multiple patterns to a grepl operation.
 #' These multiple patterns are then tested against other strings.
 #' This function is based on the base grepl operator
@@ -48,7 +48,7 @@ multigrepl      <- function(mypatterns,x){
   return(g2)
 }
 
-#' @title StartFun
+#' @title Start at NA location
 #' @description Checks the first NA value within a matrix or array and returns
 #' the location. Useful function for iteratively filling an object without
 #' the use of another iteration

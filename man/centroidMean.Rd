@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Spatial.R
 \name{centroidMean}
 \alias{centroidMean}
-\title{centroidMean}
+\title{Mean of Points within Shapefile}
 \usage{
 centroidMean(spat, pnt, count = T)
 }

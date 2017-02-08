@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Initialization.R
 \name{dircheckup}
 \alias{dircheckup}
-\title{dircheckup}
+\title{Recursively generate Directories}
 \usage{
 dircheckup(mydir)
 }

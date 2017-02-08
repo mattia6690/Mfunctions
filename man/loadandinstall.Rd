@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Initialization.R
 \name{loadandinstall}
 \alias{loadandinstall}
-\title{Loadandinstall}
+\title{Install and Initialize Packages}
 \usage{
 loadandinstall(mypkg)
 }

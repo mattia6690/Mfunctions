@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Basics.R
 \name{startfun}
 \alias{startfun}
-\title{StartFun}
+\title{Start at NA location}
 \usage{
 startfun(myinp)
 }

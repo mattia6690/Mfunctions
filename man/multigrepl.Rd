@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Basics.R
 \name{multigrepl}
 \alias{multigrepl}
-\title{Multigrepl}
+\title{Multiple grepl operations}
 \usage{
 multigrepl(mypatterns, x)
 }

@@ -1,6 +1,6 @@
 # R Spatial Functions MR
 
-#' @title Extract 2
+#' @title Vectorized Extraction of rasterValues
 #' @description With this functions raster values are extracted by various
 #' overlaying spatial points created within a polygon shapefile.
 #' @param rr Raster object; raster image
@@ -14,6 +14,8 @@
 #' @param sd boolean; computes the standard deviation of each extracted raster
 #' @param narm boolean; removes na values
 #' @param seed integer; applies the set.seed() function enabling the control over
+#' @import raster
+#' @import sp
 #' @export
 
 extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,seed=1){
@@ -38,7 +40,6 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,
     val[fi]<-t2
     ncells[fi]<- length(unique(t1))
     if (sd==T){stdev[fi]<- t3}
-    if (fi%%5000==0){print(str_c(fi, " of ", nrow(pp)))}
   }
   # Combine both Arrays in one Dataframe and return the result
   if(sd==F){stat<-data.frame(val,ncells)}
@@ -46,17 +47,18 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,
   return(stat)
 }
 
-#' @title centroidMean
+#' @title Mean of Points within Shapefile
 #' @description The centroid Mean function returns a SpatialPointDataframe
 #' containing the Centroid mean of Points within ESRI Shapefile(s).
 #' @param spat SpatialPolygonDataFrame; A file containoing one or more Spatial
 #' Polygons
 #' @param pnt SpatialPointDataFrame; A file containing the Point cloud.
 #' @param count boolean; If T, count the number of points within one Polygon. OPTIONAL
+#' @import raster
+#' @import rgeos
 #' @export
 
 centroidMean<-function(spat,pnt,count=T){
-
 
   proj1<-projection(spat)
   spat[["data"]]<-seq(1,length(spat),1)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Spatial.R
 \name{extract2}
 \alias{extract2}
-\title{Extract 2}
+\title{Vectorized Extraction of rasterValues}
 \usage{
 extract2(rr, pp, points = 1000, samp.type = "regular", weight = F,
   sd = F, narm = F, seed = 1)

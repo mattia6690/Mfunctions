@@ -2,7 +2,7 @@
 % Please edit documentation in R/R_Basics.R
 \name{digitsum}
 \alias{digitsum}
-\title{Digit Sum}
+\title{Calculate Sum of Digits}
 \usage{
 digitsum(x)
 }

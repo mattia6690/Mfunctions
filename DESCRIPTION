@@ -1,11 +1,15 @@
 Package: MRFunctions
-Type: Package
-Title: Various R Functions written by Mattia Rossi
-Version: 0.0.1
-Author: Mattia Rossi
+Version: 0.0.2
+Author: Mattia Rossi <Mattia.Rossi@eurac.edu>
 Maintainer: Mattia Rossi <Mattia.Rossi@eurac.edu>
+Title: Various R Functions written by Mattia Rossi
 Description: Various R Functions written by Mattia Rossi at EURAC UNIBZ UNIWUE.
-License: GPL-2
+License: GPL (>= 2)
 LazyData: true
 RoxygenNote: 5.0.1
-
+Imports:
+    raster,
+    rgeos,
+    sp,
+    utils,
+    stringr
