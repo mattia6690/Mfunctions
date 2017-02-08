@@ -18,6 +18,7 @@
 
 extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,seed=1){
 
+  install.packages("raster");library("raster")
   #Transform the Raster to Array (much faster and cellnumbers)
   t5<-as.array(values(rr))
   #Initialize Array for the Values and the Cells used
@@ -58,9 +59,9 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,
 
 centroidMean<-function(spat,pnt,count=T){
 
-  loadandinstall("rgeos")
-  loadandinstall("raster")
-  loadandinstall("rgdal")
+  install.packages("rgeos");library("rgeos")
+  install.packages("raster");library("raster")
+  install.packages("rgdal");library("rgdal")
 
   proj1<-projection(spat)
   spat[["data"]]<-seq(1,length(spat),1)
