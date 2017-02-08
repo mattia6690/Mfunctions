@@ -13,8 +13,6 @@ Polygons}
 \item{pnt}{SpatialPointDataFrame; A file containing the Point cloud.}
 
 \item{count}{boolean; If T, count the number of points within one Polygon. OPTIONAL}
-
-\item{indir}{character; Declaration of the Directory of the inp}
 }
 \description{
 The centroid Mean function returns a SpatialPointDataframe

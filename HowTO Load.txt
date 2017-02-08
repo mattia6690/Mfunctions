@@ -1,8 +1,0 @@
-The Package is loaded vie devtools and Install_Bitbucket
-
-Therefore digit:
-
-install.packages("devtools"); library("devtools")
-install_bitbucket("mattia6690/MRFunctions"); library("MRFunctions")
-
-at the Beginning of your script

@@ -18,7 +18,6 @@
 
 extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,seed=1){
 
-  install.packages("raster");library("raster")
   #Transform the Raster to Array (much faster and cellnumbers)
   t5<-as.array(values(rr))
   #Initialize Array for the Values and the Cells used
@@ -53,15 +52,11 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,
 #' @param spat SpatialPolygonDataFrame; A file containoing one or more Spatial
 #' Polygons
 #' @param pnt SpatialPointDataFrame; A file containing the Point cloud.
-#' @param indir character; Declaration of the Directory of the inp
 #' @param count boolean; If T, count the number of points within one Polygon. OPTIONAL
 #' @export
 
 centroidMean<-function(spat,pnt,count=T){
 
-  install.packages("rgeos");library("rgeos")
-  install.packages("raster");library("raster")
-  install.packages("rgdal");library("rgdal")
 
   proj1<-projection(spat)
   spat[["data"]]<-seq(1,length(spat),1)
@@ -93,7 +88,6 @@ centroidMean<-function(spat,pnt,count=T){
   if(count==T){centers@data[["Count"]]<-mycenters[,3]}
 
   return(centers)
-
 }
 
 
