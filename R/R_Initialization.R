@@ -1,10 +1,3 @@
-# R Initialization Functions MR
-req.pkg<- c("raster","stringr","utils")
-for(i in req.pkg){
-  if (!is.element(i, installed.packages()[,1])){
-    install.packages(i,repos = "http://cran.rstudio.com/")}; library(i, character.only=TRUE)
-}
-
 #' @title Loadandinstall
 #' @description Loads and installs a CRAN hosted Package automatically in R.
 #' No further need to apply both install.package() and library()

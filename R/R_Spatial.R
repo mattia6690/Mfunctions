@@ -45,3 +45,56 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,
   if(sd==T){stat<-data.frame(val,ncells,stdev)}
   return(stat)
 }
+
+#' @title centroidMean
+#' @description The centroid Mean function returns a SpatialPointDataframe
+#' containing the Centroid mean of Points within ESRI Shapefile(s).
+#' @param spat SpatialPolygonDataFrame; A file containoing one or more Spatial
+#' Polygons
+#' @param pnt SpatialPointDataFrame; A file containing the Point cloud.
+#' @param indir character; Declaration of the Directory of the inp
+#' @param count boolean; If T, count the number of points within one Polygon. OPTIONAL
+#' @export
+
+centroidMean<-function(spat,pnt,count=T){
+
+  loadandinstall("rgeos")
+  loadandinstall("raster")
+  loadandinstall("rgdal")
+
+  proj1<-projection(spat)
+  spat[["data"]]<-seq(1,length(spat),1)
+
+  spat_sp<-pj <- spTransform(spat[2], CRS=CRS(proj1))
+  pnt_sp<-pj <- spTransform(pnt, CRS=CRS(proj1))
+
+  ov<-over(pnt_sp,spat_sp)
+
+  vals<-unique(ov$data)
+  if(count==F){mycenters<- matrix(ncol=2,nrow=length(spat))}else{
+    mycenters<- matrix(ncol=3,nrow=length(spat))
+  }
+
+  for(i in 1:length(vals)){
+
+    myog_temp<-pnt[which(ov==i),]
+    if(length(myog_temp)==1){
+      mycenters[i,c(1,2)]<-coordinates(myog_temp)}else{
+      mycenters[i,c(1,2)]<-colMeans(coordinates(myog_temp))}
+    if(count==T){
+      mycenters[i,3]<-length(myog_temp)
+    }
+  }
+
+  centers_dat<-as.data.frame(seq(1,nrow(mycenters),1))
+  centers<-SpatialPointsDataFrame(mycenters,data=centers_dat,proj4string = CRS(projection(pnt)))
+  names(centers@data)<-c("Data")
+  if(count==T){centers@data[["Count"]]<-mycenters[,3]}
+
+  return(centers)
+
+}
+
+
+
+

@@ -51,8 +51,8 @@ multigrepl      <- function(mypatterns,x){
 #' @title StartFun
 #' @description Checks the first NA value within a matrix or array and returns
 #' the location. Useful function for iteratively filling an object without
-#' the use of another iteration.This function autmatically states the first NA value
-#' @param myinp empty array or matrix; Thisobject must be empty or just created
+#' the use of another iteration
+#' @param myinp empty array or matrix; This object must be empty or just created
 #' filled with NA.
 #' @export
 

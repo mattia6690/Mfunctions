@@ -7,12 +7,12 @@
 startfun(myinp)
 }
 \arguments{
-\item{myinp}{empty array or matrix; Thisobject must be empty or just created
+\item{myinp}{empty array or matrix; This object must be empty or just created
 filled with NA.}
 }
 \description{
 Checks the first NA value within a matrix or array and returns
 the location. Useful function for iteratively filling an object without
-the use of another iteration.This function autmatically states the first NA value
+the use of another iteration
 }
 
