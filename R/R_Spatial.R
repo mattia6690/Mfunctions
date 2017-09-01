@@ -24,10 +24,10 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,narm=F,seed=
   if(class(rr)=="RasterLayer"){t5<-values(rr) %>% as.array}
   if(class(rr)=="array"){t5<-rr}
   #Initialize Array for the Values and the Cells used
-  val<-array(dim=nrow(pp))
-  ncells<-array(dim=nrow(pp))
-  nas<-array(dim=nrow(pp))
-  stdev<- array(dim=nrow(pp))
+  Mean<-array(dim=nrow(pp))
+  Ncells<-array(dim=nrow(pp))
+  Nas<-array(dim=nrow(pp))
+  Stdev<- array(dim=nrow(pp))
   for (fi in 1:nrow(pp)){
     set.seed(seed)
     # Create a regular sampled Points in every Polygon
@@ -39,13 +39,13 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,narm=F,seed=
     t2<- t5[t1] %>% mean(.,na.rm=narm)
     t3<- t5[t1] %>% sd(.,na.rm=narm)
     # Write the Values to the Arrays
-    val[fi]<-t2
-    ncells[fi]<- t1 %>% unique %>% length
-    stdev[fi]<- t3
-    nas[fi] <-t1 %>% unique %>% t5[.] %>% is.na %>% which %>% length
+    Mean[fi]<-t2
+    Ncells[fi]<- t1 %>% unique %>% length
+    Stdev[fi]<- t3
+    Nas[fi] <-t1 %>% unique %>% t5[.] %>% is.na %>% which %>% length
   }
   # Combine both Arrays in one Dataframe and return the result
-  stat<-data.frame(val,stdev,ncells,nas)
+  stat<-data.frame(Val,Stdev,Ncells,Nas)
   return(stat)
 }
 
