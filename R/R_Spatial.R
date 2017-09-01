@@ -45,7 +45,7 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,narm=F,seed=
     nas[fi] <-t1 %>% unique %>% t5[.] %>% is.na %>% which %>% length
   }
   # Combine both Arrays in one Dataframe and return the result
-  stat<-data.frame(val,ncells,stdev,nas)
+  stat<-data.frame(val,stdev,ncells,nas)
   return(stat)
 }
 
