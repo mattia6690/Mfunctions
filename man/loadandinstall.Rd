@@ -13,4 +13,3 @@ loadandinstall(mypkg)
 Loads and installs a CRAN hosted Package automatically in R.
 No further need to apply both install.package() and library()
 }
-

@@ -11,14 +11,13 @@
 #' @param weight boolean; Weighting image considering the underlaying rasters a
 #' differentweight in the extraction computation. This makes pixel partially
 #' located within a polygon less weighted. Input is T/F
-#' @param sd boolean; computes the standard deviation of each extracted raster
 #' @param narm boolean; removes na values
 #' @param seed integer; applies the set.seed() function enabling the control over
 #' @import raster
 #' @import sp
 #' @export
 
-extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,seed=1){
+extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,narm=F,seed=1){
 
   #Transform the Raster to Array (much faster and cellnumbers)
   if(class(rr)=="RasterLayer"){t5<-as.array(values(rr))}
@@ -26,7 +25,8 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,
   #Initialize Array for the Values and the Cells used
   val<-array(dim=nrow(pp))
   ncells<-array(dim=nrow(pp))
-  if (sd==T){stdev<- array(dim=nrow(pp))}
+  nas<-array(dim=nrow(pp))
+  stdev<- array(dim=nrow(pp))
   for (fi in 1:nrow(pp)){
     set.seed(seed)
     # Create a regular sampled Points in every Polygon
@@ -36,15 +36,15 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,sd=F,narm=F,
     if (weight==F){t1<- unique(cellFromXY(rr,u))}
     # Compute the Mean of the Cellvalues
     t2<- mean(t5[t1],na.rm=narm)
-    if (sd==T){t3<- sd(t5[t1],na.rm=narm)}
+    t3<- sd(t5[t1],na.rm=narm)
     # Write the Values to the Arrays
     val[fi]<-t2
-    ncells[fi]<- length(unique(t1))
-    if (sd==T){stdev[fi]<- t3}
+    ncells[fi]<- t1 %>% unique %>% length
+    stdev[fi]<- t3
+    nas[fi] <-which(is.na(t5[t1])) %>% length
   }
   # Combine both Arrays in one Dataframe and return the result
-  if(sd==F){stat<-data.frame(val,ncells)}
-  if(sd==T){stat<-data.frame(val,ncells,stdev)}
+  stat<-data.frame(val,ncells,stdev,nas)
   return(stat)
 }
 

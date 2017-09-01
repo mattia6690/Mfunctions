@@ -5,7 +5,7 @@
 \title{Vectorized Extraction of rasterValues}
 \usage{
 extract2(rr, pp, points = 1000, samp.type = "regular", weight = F,
-  sd = F, narm = F, seed = 1)
+  narm = F, seed = 1)
 }
 \arguments{
 \item{rr}{Raster object; raster image}
@@ -21,8 +21,6 @@ generated as described in the spsample() function of the "sp" package}
 differentweight in the extraction computation. This makes pixel partially
 located within a polygon less weighted. Input is T/F}
 
-\item{sd}{boolean; computes the standard deviation of each extracted raster}
-
 \item{narm}{boolean; removes na values}
 
 \item{seed}{integer; applies the set.seed() function enabling the control over}
@@ -31,4 +29,3 @@ located within a polygon less weighted. Input is T/F}
 With this functions raster values are extracted by various
 overlaying spatial points created within a polygon shapefile.
 }
-

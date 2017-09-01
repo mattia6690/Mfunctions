@@ -12,4 +12,3 @@ digitsum(x)
 \description{
 Computes the sum of digits in one number
 }
-

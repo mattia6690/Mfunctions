@@ -14,4 +14,3 @@ binary(i, bit)
 \description{
 Creates the Binary output of a number
 }
-

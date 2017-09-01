@@ -15,4 +15,3 @@ Checks the first NA value within a matrix or array and returns
 the location. Useful function for iteratively filling an object without
 the use of another iteration
 }
-

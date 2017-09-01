@@ -18,4 +18,3 @@ Polygons}
 The centroid Mean function returns a SpatialPointDataframe
 containing the Centroid mean of Points within ESRI Shapefile(s).
 }
-

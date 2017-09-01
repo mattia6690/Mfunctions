@@ -16,4 +16,3 @@ Allows to add multiple patterns to a grepl operation.
 These multiple patterns are then tested against other strings.
 This function is based on the base grepl operator
 }
-
