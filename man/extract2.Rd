@@ -4,8 +4,8 @@
 \alias{extract2}
 \title{Vectorized Extraction of rasterValues}
 \usage{
-extract2(rr, pp, points = 1000, samp.type = "regular", weight = F,
-  narm = F, seed = 1)
+extract2(rr, pp, points = NA, samp.type = "regular", weight = F,
+  narm = F, seed = 1, returnVals = F)
 }
 \arguments{
 \item{rr}{Raster object; raster image}
@@ -24,6 +24,8 @@ located within a polygon less weighted. Input is T/F}
 \item{narm}{boolean; removes na values}
 
 \item{seed}{integer; applies the set.seed() function enabling the control over}
+
+\item{returnVals}{boolean; return all extracted values}
 }
 \description{
 With this functions raster values are extracted by various
