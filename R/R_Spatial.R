@@ -13,14 +13,17 @@
 #' located within a polygon less weighted. Input is T/F
 #' @param narm boolean; removes na values
 #' @param seed integer; applies the set.seed() function enabling the control over
+#' @param returnVals boolean; return all extracted values
 #' @import raster
 #' @import sp
 #' @import magrittr
 #' @export
 
-extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,narm=F,seed=1){
+extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,returnVals=F){
 
   #Transform the Raster to Array (much faster and cellnumbers)
+
+  if(is.na(points)) points<-ncell(rr)
   if(class(rr)=="RasterLayer"){t5<-values(rr) %>% as.array}
   if(class(rr)=="array"){t5<-rr}
   #Initialize Array for the Values and the Cells used
@@ -28,6 +31,7 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,narm=F,seed=
   Ncells<-array(dim=nrow(pp))
   Nas<-array(dim=nrow(pp))
   Stdev<- array(dim=nrow(pp))
+  if(returnVals==T) vallist<-list()
   for (fi in 1:nrow(pp)){
     set.seed(seed)
     # Create a regular sampled Points in every Polygon
@@ -35,9 +39,14 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,narm=F,seed=
     # Obtain the unique Cellnumbers intersecting with the Points
     if (weight==T){t1<- cellFromXY(rr,u)}
     if (weight==F){t1<- cellFromXY(rr,u) %>% unique}
+
+    values<- t5[t1]
+    if(returnVals==T) {vallist[[fi]]<-values; next}
+
     # Compute the Mean of the Cellvalues
-    t2<- t5[t1] %>% mean(.,na.rm=narm)
-    t3<- t5[t1] %>% sd(.,na.rm=narm)
+    t2<- values %>% mean(.,na.rm=narm)
+    t3<- values %>% sd(.,na.rm=narm)
+
     # Write the Values to the Arrays
     Mean[fi]<-t2
     Ncells[fi]<- t1 %>% unique %>% length
@@ -45,8 +54,7 @@ extract2<- function (rr,pp,points=1000,samp.type="regular",weight=F,narm=F,seed=
     Nas[fi] <-t1 %>% unique %>% t5[.] %>% is.na %>% which %>% length
   }
   # Combine both Arrays in one Dataframe and return the result
-  stat<-data.frame(Mean,Stdev,Ncells,Nas)
-  return(stat)
+  ifelse(returnVals==T, return(vallist), return(data.frame(Mean,Stdev,Ncells,Nas)))
 }
 
 #' @title Mean of Points within Shapefile
