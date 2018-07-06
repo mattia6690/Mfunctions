@@ -56,7 +56,7 @@ extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,
     }
   }
   # Combine both Arrays in one Dataframe and return the result
-  if(returnVals==T) return(vallist) else return(data.frame(Mean,Stdev,Ncells,Nas))
+  if(returnVals==T) {return(vallist)} else {return(data.frame(Mean,Stdev,Ncells,Nas))}
 }
 
 #' @title Mean of Points within Shapefile
