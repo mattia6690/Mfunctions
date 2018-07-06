@@ -41,17 +41,19 @@ extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,
     if (weight==F){t1<- cellFromXY(rr,u) %>% unique}
 
     values<- t5[t1]
-    if(returnVals==T) {vallist[[fi]]<-values; next}
+    if(returnVals==T) {vallist[[fi]]<-values}
+    if(returnVals==F) {
 
-    # Compute the Mean of the Cellvalues
-    t2<- values %>% mean(.,na.rm=narm)
-    t3<- values %>% sd(.,na.rm=narm)
+      # Compute the Mean of the Cellvalues
+      t2<- values %>% mean(.,na.rm=narm)
+      t3<- values %>% sd(.,na.rm=narm)
 
-    # Write the Values to the Arrays
-    Mean[fi]<-t2
-    Ncells[fi]<- t1 %>% unique %>% length
-    Stdev[fi]<- t3
-    Nas[fi] <-t1 %>% unique %>% t5[.] %>% is.na %>% which %>% length
+      # Write the Values to the Arrays
+      Mean[fi]<-t2
+      Ncells[fi]<- t1 %>% unique %>% length
+      Stdev[fi]<- t3
+      Nas[fi] <-t1 %>% unique %>% t5[.] %>% is.na %>% which %>% length
+    }
   }
   # Combine both Arrays in one Dataframe and return the result
   if(returnVals==T) return(vallist) else return(data.frame(Mean,Stdev,Ncells,Nas))
