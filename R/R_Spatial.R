@@ -33,12 +33,28 @@ extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,
   Stdev<- array(dim=nrow(pp))
   if(returnVals==T) vallist<-list()
   for (fi in 1:nrow(pp)){
+
     set.seed(seed)
+    obj<-pp[fi,]
+
     # Create a regular sampled Points in every Polygon
-    u<-spsample(pp[fi,],n=points,type=samp.type)
+    if(class(pp)=="SpatialPointsDataFrame") {
+      u<-obj
+    } else if (class(pp)=="SpatialPolygonDataFrame"){
+
+      if(is.na(points)) {
+        points<-ceiling(area(obj)/sqrt(prod(res(rr))))
+      } else { points<- points }
+
+      u<-spsample(obj,n=points,type=samp.type)
+
+    } else {
+      stop("The Object you chose must be either spatial point or spatial Polygon")
+    }
+
     # Obtain the unique Cellnumbers intersecting with the Points
-    if (weight==T){t1<- cellFromXY(rr,u)}
-    if (weight==F){t1<- cellFromXY(rr,u) %>% unique}
+    t1<- cellFromXY(rr,u)
+    if(weight==T) unique(t1)
 
     values<- t5[t1]
     if(returnVals==T) {vallist[[fi]]<-values}
