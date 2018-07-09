@@ -40,7 +40,7 @@ extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,
     # Create a regular sampled Points in every Polygon
     if(class(pp)=="SpatialPointsDataFrame") {
       u<-obj
-    } else if (class(pp)=="SpatialPolygonDataFrame"){
+    } else if (class(pp)=="SpatialPolygonsDataFrame"){
 
       if(is.na(points)) {
         points<-ceiling(area(obj)/sqrt(prod(res(rr))))
