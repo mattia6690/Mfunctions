@@ -1,0 +1,15 @@
+---
+title: "Changelog"
+author: "Mattia Rossi"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## v 0.0.2
+**12.06.19**
+
+- Documentation added
+- Used `pkgdown` to comment the code and to create the Website
+- Added a License File

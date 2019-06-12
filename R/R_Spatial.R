@@ -22,10 +22,9 @@
 extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,returnVals=F){
 
   #Transform the Raster to Array (much faster and cellnumbers)
-
-  if(is.na(points)) points<-ncell(rr)
   if(class(rr)=="RasterLayer"){t5<-values(rr) %>% as.array}
   if(class(rr)=="array"){t5<-rr}
+
   #Initialize Array for the Values and the Cells used
   Mean<-array(dim=nrow(pp))
   Ncells<-array(dim=nrow(pp))

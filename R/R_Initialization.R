@@ -5,8 +5,7 @@
 #' @importFrom  utils install.packages installed.packages
 #' @export
 
-loadandinstall <- function(mypkg) {if (!is.element(mypkg, installed.packages()[,1]))
-  {install.packages(mypkg)}; library(mypkg, character.only=TRUE)  }
+loadandinstall <- function(mypkg) {if (!is.element(mypkg, installed.packages()[,1])){install.packages(mypkg)}; library(mypkg, character.only=TRUE)  }
 
 #' @title Recursively generate Directories
 #' @description Automatically checks whether a Directory exists. If none is
