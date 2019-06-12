@@ -7,7 +7,7 @@
 centroidMean(spat, pnt, count = T)
 }
 \arguments{
-\item{spat}{SpatialPolygonDataFrame; A file containoing one or more Spatial
+\item{spat}{SpatialPolygonDataFrame; A file containing one or more Spatial
 Polygons}
 
 \item{pnt}{SpatialPointDataFrame; A file containing the Point cloud.}
