@@ -1,10 +1,17 @@
 Package: Mfunctions
 Version: 0.0.2
-Author: Mattia Rossi <Mattia.Rossi@eurac.edu>
+Title: Various Helpful R Functions
+Authors@R: person(
+  given = "Mattia",
+  family = "Rossi",
+  role = c("aut", "cre"),
+  email = "mattia.rossi@eurac.edu")
 Maintainer: Mattia Rossi <Mattia.Rossi@eurac.edu>
-Title: Various R Functions written by Mattia Rossi
-Description: Various R Functions written by Mattia Rossi at EURAC UNIBZ UNIWUE.
-License: GPL (>= 2)
+Description: This Package contains Various R Functions 
+  ranging from little helper functions to performant spatial
+  functions
+License: GPL-3 | file LICENSE
+Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Imports:
@@ -13,4 +20,5 @@ Imports:
     sp,
     utils,
     stringr,
-    magrittr
+    magrittr,
+    stats
