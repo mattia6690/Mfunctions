@@ -16,7 +16,8 @@
 #' @param returnVals boolean; return all extracted values
 #' @import raster
 #' @import sp
-#' @import magrittr
+#' @importFrom stats sd
+#' @importFrom magrittr "%>%"
 #' @export
 
 extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,returnVals=F){
@@ -60,14 +61,15 @@ extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,
     if(returnVals==F) {
 
       # Compute the Mean of the Cellvalues
-      t2<- values %>% mean(.,na.rm=narm)
-      t3<- values %>% sd(.,na.rm=narm)
+      t2<- mean(values,na.rm=narm)
+      t3<- sd(values,na.rm=narm)
 
       # Write the Values to the Arrays
+      unq <- t1 %>% unique
       Mean[fi]<-t2
-      Ncells[fi]<- t1 %>% unique %>% length
+      Ncells[fi]<- unq %>% length
       Stdev[fi]<- t3
-      Nas[fi] <-t1 %>% unique %>% t5[.] %>% is.na %>% which %>% length
+      Nas[fi] <- t5[unq] %>% is.na %>% which %>% length
     }
   }
   # Combine both Arrays in one Dataframe and return the result
@@ -77,11 +79,11 @@ extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,
 #' @title Mean of Points within Shapefile
 #' @description The centroid Mean function returns a SpatialPointDataframe
 #' containing the Centroid mean of Points within ESRI Shapefile(s).
-#' @param spat SpatialPolygonDataFrame; A file containoing one or more Spatial
+#' @param spat SpatialPolygonDataFrame; A file containing one or more Spatial
 #' Polygons
 #' @param pnt SpatialPointDataFrame; A file containing the Point cloud.
 #' @param count boolean; If T, count the number of points within one Polygon. OPTIONAL
-#' @import raster
+#' @import sp
 #' @import rgeos
 #' @export
 
@@ -90,8 +92,8 @@ centroidMean<-function(spat,pnt,count=T){
   proj1<-projection(spat)
   spat[["data"]]<-seq(1,length(spat),1)
 
-  spat_sp<-pj <- spTransform(spat[2], CRS=CRS(proj1))
-  pnt_sp<-pj <- spTransform(pnt, CRS=CRS(proj1))
+  spat_sp<-pj <- spTransform(spat[2], CRS(proj1))
+  pnt_sp<-pj <- spTransform(pnt, CRS(proj1))
 
   ov<-over(pnt_sp,spat_sp)
 

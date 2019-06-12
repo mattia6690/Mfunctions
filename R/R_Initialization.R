@@ -13,7 +13,7 @@ loadandinstall <- function(mypkg) {if (!is.element(mypkg, installed.packages()[,
 #' By specifying the Subdirectory also non-existing main directories will
 #' be recursively built
 #' @param mydir character; Location of a Directory
-#' @import stringr
+#' @importFrom stringr str_split
 #' @export
 
 dircheckup     <- function(mydir) {
