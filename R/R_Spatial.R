@@ -43,7 +43,7 @@ extract2<- function (rr,pp,points=NA,samp.type="regular",weight=F,narm=F,seed=1,
     } else if (class(pp)=="SpatialPolygonsDataFrame"){
 
       if(is.na(points)) {
-        points<-ceiling(area(obj)/sqrt(prod(res(rr))))
+        points<-1000
       } else { points<- points }
 
       u<-spsample(obj,n=points,type=samp.type)
