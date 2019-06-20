@@ -7,9 +7,8 @@ Authors@R: person(
   role = c("aut", "cre"),
   email = "mattia.rossi@eurac.edu")
 Maintainer: Mattia Rossi <Mattia.Rossi@eurac.edu>
-Description: This Package contains Various R Functions 
-  ranging from little helper functions to performant spatial
-  functions
+Description: This Package contains Various R Functions ranging 
+  from little helper functions to performant spatialfunctions
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true

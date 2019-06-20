@@ -18,9 +18,3 @@ before install:
   - sudo add-apt-repository -y ppa:opencpu/jq --yes
   - sudo apt-get -qq update
   - sudo apt-get install -y libgdal-dev libproj-dev libv8-dev libprotobuf-dev libudunits2-dev netcdf-bin libv8-dev libjq-dev
-
-r_github_packages:
- - r-lib/covr
-
-after_success:
- - Rscript -e 'library(covr); codecov()'
