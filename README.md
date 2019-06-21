@@ -5,14 +5,12 @@
 
 # Mfunctions
 
-A package that provides basic R Function I encountered as useful during my Masters and PhD Thesis:
+A package that provides basic R Function I use repeatedly for my research. It contains various functions for:
 
-* Basic simplification Functions as for folder creation, package installation etc.
+* Basic simplification as for folder creation, package installation etc.
 * Basic mathematical expressions like sum of digits or binary conversion
 * Geospatial operations dealing with the informations within a raster just like vectors
 
 The package has no effective error handling implemented and the functions have to be considered as very generic
-nevertheless the presented and commented functions could be helpful
-
-*last updated Readme: 26.07.17*
+nevertheless the presented and commented functions could be helpful.
 
