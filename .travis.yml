@@ -12,9 +12,3 @@ apt_packages:
   - libgdal-dev
   - libproj-dev
   - libudunits2-dev
-
-before install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libgdal-dev libproj-dev libv8-dev libudunits2-dev
-
-script:
